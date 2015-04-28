@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="Main">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>zeTitle</title>
+	<!-- jQuery -->
+	<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+	<!--/ jQuery -->
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- /bootstrap -->
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row"><a href="./admin/index.html">admin</a></div>
+		<h1>public/index.html</h1>
+		<!-- CART -->	
+		<div ng-controller="CartController" class="table-responsive">
+			<div class="col-md-2 pull-right">
+				<h4>Din kurv:</h4>
+				{{cartStatus}}
+				<p>
+					<b data-toggle="modal" data-target="#cart"><span class="glyphicon glyphicon-shopping-cart"></span> Vis kurv</b>
+				</p>
+				<p>
+					<b><a ng-href="#/checkout/">Gå til checkout</a></b>
+				</p>
+			</div>	
+		</div>
+		<!-- /CART -->
+
+		<div class="table-responsive">
+			<!-- VIEW -->
+			<div ng-view></div>
+			<!-- /VIEW -->
+		</div>
+
+		<!-- MODAL OVERLAY CART -->
+		<div class="modal fade" id="cart">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4>Din kurv indeholder:</h4>
+					</div>
+					<div class="modal-body" ng-controller="CartController">
+						<table class="table table-hover table-condensed">
+							<tr ng-repeat="item in cart">
+								<td>
+									<button ng-click="delProd(item)" class="btn">
+										<span class="glyphicon glyphicon-remove-sign"></span>
+									</button>
+									<button ng-click="lessProd(item)" class="btn">
+										<span class="glyphicon glyphicon-minus-sign"></span>
+									</button>
+									<img ng-src="../img/{{item.product.prodImg}}" width="35" />
+									<button ng-click="moreProd(item)" class="btn">
+										<span class="glyphicon glyphicon-plus-sign"></span>
+									</button>
+								</td>
+								<td>{{item.product.prodTitle}}</td>
+								<td>{{item.amount}} &times; {{item.product.prodPrice}}.- =</td>
+								<td>{{item.amount * item.product.prodPrice}} .-</td>
+							</tr>
+							<tr>
+								<td colspan="3"><h4>Total:</h4></td>
+								<td><b>{{ cartTotal }}.-</b></td>
+							</tr>
+							<tr><td colspan="5">&nbsp;</td></tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /MODAL OVERLAY CART -->
+	</div>
+	
+	<script src="./bower_components/angular/angular.js"></script>
+	<script src="./bower_components/angular-route/angular-route.min.js"></script>
+	<script src="./app.module.js"></script>
+	<script src="./cart/cart.controller.js"></script>
+	<script src="./products/products.controller.js"></script>
+	<script src="./products/product.controller.js"></script>
+	<script src="./products/products.service.js"></script>
+	<script src="./cart/cart.service.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>zeTitle</title>
+	<!-- jQuery -->
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<!--/ jQuery -->
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- /bootstrap -->
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>admin/index.html</h1>
+		<ul>
+			<li><a href="/#prodCreate">Create product</a></li>
+			<li><a href="/#prodRead">Read product</a></li>
+			<li><a href="/#prodUpdate">Update product</a></li>
+			<li><a href="/#prodDelete">Delete product</a></li>
+		</ul>
+
+		<div class="table-responsive">
+			<!-- VIEW -->
+			<div ng-view></div>
+			<!-- /VIEW -->
+		</div>
+	</div>
+
+	<script src="../bower_components/angular/angular.js"></script>
+	<script src="../bower_components/angular-route/angular-route.min.js"></script>
+	<!--
+	<script src="../admin.module.js"></script>
+	-->
+
+
+</body>
+</html>
