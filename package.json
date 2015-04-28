@@ -4,6 +4,7 @@
     "gulp": "^3.8.11"
   },
   "dependencies": {
-    "passport": "^0.2.1"
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0"
   }
 }
